@@ -1,36 +1,21 @@
 #! /bin/bash
 
-read -p "please input: " n
- for ((i = 1; i <= n; i ++)) # control the number of lines
-do
- for ((j = n; j> i; j--)) # output control space
-    do
-        echo -n " "
-    done
-    
-    let "g=2*i-1"
+read -p "Enter a number " n
 
- for m in `seq 1 $ g` # Control * Number
-    do
-        echo -n "*"
-    done
-
-    echo ""
-done
-
- for ((i = 2; i <= n; i ++)) # control the number of lines
-do
- for ((j = 1; j <i; j ++)) # output control space
-    do
-        echo -n " "
-    done
-
-    let "k=2*(long-i)+1"
-
- for m in `seq 1 $ k` # Control * Number
-    do
-        echo -n "*"
-    done
-
-    echo ""
-done
+if [ $((n%2)) -eq 0 ]
+then
+  echo "Value is not perfect"
+else
+  for((i=1; i<=n; i++))
+ do
+  for((j=1; j<=n - i; j++))
+  do
+    echo -n "  "
+  done
+  for((j=1; j<=2*i - 1; j++))
+  do
+    echo -n "* "
+  done
+  echo
+ done
+fi
